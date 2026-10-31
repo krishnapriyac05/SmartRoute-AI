@@ -1,0 +1,229 @@
+{
+  "anchor_utc": "2026-08-01T00:00:00Z",
+  "counts": {
+    "agent_languages": 50,
+    "agent_queues": 20,
+    "agent_shifts": 900,
+    "agent_skills": 20,
+    "agents": 10,
+    "anomaly_ground_truth": 0,
+    "assignment_events": 250,
+    "business_calendars": 2,
+    "calendar_exceptions": 0,
+    "calendar_hours": 5,
+    "channels": 3,
+    "customers": 100,
+    "intents": 5,
+    "languages": 5,
+    "messages": 800,
+    "priority_rules": 3,
+    "queues": 5,
+    "resolutions": 205,
+    "skills": 5,
+    "sla_events": 455,
+    "sla_policies": 12,
+    "ticket_events": 705,
+    "tickets": 250,
+    "validation_runs": 0
+  },
+  "files": {
+    "agent_languages.csv": {
+      "rows": 50,
+      "sha256": "0558d0712febe15c23a16cf90854f3fd7349afaad0434548cea7bd23b0f992f7"
+    },
+    "agent_languages.json": {
+      "rows": 50,
+      "sha256": "c732afa4c8268b28de3a7bcfc0e8231bd6040805ce87b35668db190a6514d41b"
+    },
+    "agent_queues.csv": {
+      "rows": 20,
+      "sha256": "ef29b3ecbea6243ccc502bba0b87a2c0e59e25d3090125d1fcd14e6e6eba167d"
+    },
+    "agent_queues.json": {
+      "rows": 20,
+      "sha256": "00d085ce77e78d9de5c90fb9e1e5fd4a4230e2ff773ed2eefa68c8e351ece2de"
+    },
+    "agent_shifts.csv": {
+      "rows": 900,
+      "sha256": "a01872898d923326bb80c263c445a9d25525a7bffc190ab361e3442b156dad69"
+    },
+    "agent_shifts.json": {
+      "rows": 900,
+      "sha256": "5b9437799f340b970b772dd1770c6f65b3b18c860b301090328836810027475c"
+    },
+    "agent_skills.csv": {
+      "rows": 20,
+      "sha256": "3581492459e256bd264c97e25e583af3a1a24b7a6ab66bb8e04e2614c4874eed"
+    },
+    "agent_skills.json": {
+      "rows": 20,
+      "sha256": "e695ac1e438bbf27c56d3ed5bdc8b34f7b4bb93e5788d1a21f0f08ee2bea1241"
+    },
+    "agents.csv": {
+      "rows": 10,
+      "sha256": "36a53e28a07fba9e232bd67705189966664004d245b787b3812e9a6e1764b319"
+    },
+    "agents.json": {
+      "rows": 10,
+      "sha256": "7b416821d92d27c267b22dd96e880b039493ca8a90071bd20469c4ddf72fdd39"
+    },
+    "anomaly_ground_truth.csv": {
+      "rows": 0,
+      "sha256": "6d91d84e8c9dccdf5a3512e4775cecfc2165c26098585c4f8da41190c657b476"
+    },
+    "anomaly_ground_truth.json": {
+      "rows": 0,
+      "sha256": "2ba33ca0557f1bb5b7ba88d67f9d0093c7185a36ec51fe2b7bd9372d3e001d6d"
+    },
+    "assignment_events.csv": {
+      "rows": 250,
+      "sha256": "c8c9b5450442f9a2d6bbfa61d7efb1debe249839e12942faf51a81117448b982"
+    },
+    "assignment_events.json": {
+      "rows": 250,
+      "sha256": "4b0a3965441f5de6be988ebca8d904ad3c333562767d94ddfdf1e12d9689c16c"
+    },
+    "business_calendars.csv": {
+      "rows": 2,
+      "sha256": "2d87ca380ad9e7363ce7a02d389713b7e09ece61440c6ba99cc6a3dc43bc3863"
+    },
+    "business_calendars.json": {
+      "rows": 2,
+      "sha256": "72049fcb83b131b88e3f2d10129488ccf5b14eb4127588ed20706131b74665d6"
+    },
+    "calendar_exceptions.csv": {
+      "rows": 0,
+      "sha256": "bfa6c26be99f4eb7f7eabf20dee10aa3e21403737da15d603083b420c8faffc5"
+    },
+    "calendar_exceptions.json": {
+      "rows": 0,
+      "sha256": "2ba33ca0557f1bb5b7ba88d67f9d0093c7185a36ec51fe2b7bd9372d3e001d6d"
+    },
+    "calendar_hours.csv": {
+      "rows": 5,
+      "sha256": "da32ad9b40d9961d81fdd8e900260275f3c192b57828cef052a5538c820c779f"
+    },
+    "calendar_hours.json": {
+      "rows": 5,
+      "sha256": "f8980fac4034ec8e7e04c467f4874de32094c87cb891353b5ef9ab15ab74485a"
+    },
+    "channels.csv": {
+      "rows": 3,
+      "sha256": "2b85bbc957e22fdd74a6e6b2a91481c766a1ed03dc5a672581b2801687469b8c"
+    },
+    "channels.json": {
+      "rows": 3,
+      "sha256": "0920aa8b865ee5f172899942e14c98e498aac3e1509d47f6e1537df16a94050d"
+    },
+    "customers.csv": {
+      "rows": 100,
+      "sha256": "88b8b50ab78f9f4d66301063e452cfbef01c6497c81abc223d3b434b8a7b3ddd"
+    },
+    "customers.json": {
+      "rows": 100,
+      "sha256": "dfc444b7aadbab75f6f8a703d414dacb3b45324b5265fb4c3e84956efc4c4f7d"
+    },
+    "dataset.sql": {
+      "rows": null,
+      "sha256": "0a5cac229c338a12aa40ccebfc1204d129da5e19b6e33f93aa65ff92723ec73a"
+    },
+    "intents.csv": {
+      "rows": 5,
+      "sha256": "7084d9a9299aecaaae0148d38fcdf8c427468bf854834a0f74c686ff1513efdf"
+    },
+    "intents.json": {
+      "rows": 5,
+      "sha256": "002f8ed6e784b6326342ceefc3e76e44563ffe9afa128ef5a6aca08e59adc66f"
+    },
+    "languages.csv": {
+      "rows": 5,
+      "sha256": "737fdcdfb236ad4e228e09f89802ae9351768b7827f20b4bc17fda7dcb9fbfae"
+    },
+    "languages.json": {
+      "rows": 5,
+      "sha256": "de9577c9b8cb697eb1f3733b6faf42a23c31013ef1f8025284febeedf5aeecdf"
+    },
+    "messages.csv": {
+      "rows": 800,
+      "sha256": "a6d3afba4ac9cc4d0d8ec903f267452209ce4d7af0c0cec74739634cdb891314"
+    },
+    "messages.json": {
+      "rows": 800,
+      "sha256": "b85409fe8cb4a3d1cda65b48566e27145ce7317ec1e21322bad1f45131f05c4a"
+    },
+    "priority_rules.csv": {
+      "rows": 3,
+      "sha256": "c5b8b599551c8ed83cd70ebbe79dd8f8ec47978f68c7d97a1a6de4e211bd0a43"
+    },
+    "priority_rules.json": {
+      "rows": 3,
+      "sha256": "727dad49124d44b07f05786e2ce019de3d52708250aa6312035700d939a6bd26"
+    },
+    "queues.csv": {
+      "rows": 5,
+      "sha256": "cb881b9c8934e778876d673ea34c3a2ba812c35d619952a224df641e26533760"
+    },
+    "queues.json": {
+      "rows": 5,
+      "sha256": "bc6050f4244c74c9ff2a8599684eefaf652f66ee70dc87293d2200519b795755"
+    },
+    "resolutions.csv": {
+      "rows": 205,
+      "sha256": "cc2f12f47aca5b8274deafb88e5736d215daa13d8da004c27678d9cd4adc147d"
+    },
+    "resolutions.json": {
+      "rows": 205,
+      "sha256": "1c8947b0a097314c7f5151fbf04f6c1eae352bc6a64179c83437f7164976f579"
+    },
+    "skills.csv": {
+      "rows": 5,
+      "sha256": "a8ea2c1c2d2c3da61a4d504025bbf17fc8bf12d8efde1f25e7c5c56fc52ed249"
+    },
+    "skills.json": {
+      "rows": 5,
+      "sha256": "8f5dc32d368e23b4511b4b96dc78c5b2a58caeebbeb0564b475ce090e82e0d21"
+    },
+    "sla_events.csv": {
+      "rows": 455,
+      "sha256": "bc0dcebd7ad544cdef49668262ed3d8097a4b886fc15a5f9320a58f48a4c8b74"
+    },
+    "sla_events.json": {
+      "rows": 455,
+      "sha256": "bf337655d929743ac9f1e93f4b8c3cd8f089f965067764f332ce01d492549eca"
+    },
+    "sla_policies.csv": {
+      "rows": 12,
+      "sha256": "7c30eb149e83792779315f372e18db8c1e859c8bb790b48ee75f3af637eddc98"
+    },
+    "sla_policies.json": {
+      "rows": 12,
+      "sha256": "a9af5f71c20cb6fc8536df70f00aa19956e894718873379c35eeb44aa1643d7d"
+    },
+    "ticket_events.csv": {
+      "rows": 705,
+      "sha256": "1d20150567e808a2c973f3686e28a5bb60c20797e13a1fd224a19943f0236dc8"
+    },
+    "ticket_events.json": {
+      "rows": 705,
+      "sha256": "e70193e5cf1f7664788f46a3aae74634c2f99ad14568cbfc2aef82dfb3bd61a1"
+    },
+    "tickets.csv": {
+      "rows": 250,
+      "sha256": "6765b548795a09f0761a3321375b314c9b8796f783f4c326cf2cb2b7f3b71658"
+    },
+    "tickets.json": {
+      "rows": 250,
+      "sha256": "13ac5e74d0314f95fd57740b5d679d4b893e58e338da1c033e22966830d0bdc6"
+    },
+    "validation_runs.csv": {
+      "rows": 0,
+      "sha256": "fff410526468e4a98f4585bd2bd0143d22b3c0c82d6f6ffad6f5c5c74fa8b30b"
+    },
+    "validation_runs.json": {
+      "rows": 0,
+      "sha256": "2ba33ca0557f1bb5b7ba88d67f9d0093c7185a36ec51fe2b7bd9372d3e001d6d"
+    }
+  },
+  "profile": "starter",
+  "seed": 20261022
+}

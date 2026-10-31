@@ -1,0 +1,6 @@
+intent_id,code,display_name,default_queue_id,required_skill_id,safety_critical,is_active
+INT-PAY,PAYMENT_FAILURE,Payment failure,QUE-BILL,SKL-BILL,0,1
+INT-BUG,TECHNICAL_ISSUE,Technical issue,QUE-TECH,SKL-TECH,0,1
+INT-LOG,LOGIN_PROBLEM,Login problem,QUE-ACCT,SKL-ACCT,0,1
+INT-SEC,SECURITY_INCIDENT,Security incident,QUE-SEC,SKL-SEC,1,1
+INT-REF,REFUND_REQUEST,Refund request,QUE-REF,SKL-REF,0,1

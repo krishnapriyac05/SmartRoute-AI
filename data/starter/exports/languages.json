@@ -1,0 +1,7 @@
+[
+{"display_name":"English","is_active":1,"iso_code":"en","language_id":"LNG-EN"},
+{"display_name":"Hindi","is_active":1,"iso_code":"hi","language_id":"LNG-HI"},
+{"display_name":"Telugu","is_active":1,"iso_code":"te","language_id":"LNG-TE"},
+{"display_name":"Tamil","is_active":1,"iso_code":"ta","language_id":"LNG-TA"},
+{"display_name":"Kannada","is_active":1,"iso_code":"kn","language_id":"LNG-KN"}
+]

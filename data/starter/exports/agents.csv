@@ -1,0 +1,11 @@
+agent_id,full_name,email,timezone,concurrency_limit,status,hired_at,is_active
+AGT-000001,Support Agent 001,agent001@smartroute.test,Asia/Kolkata,4,AVAILABLE,2025-06-28T00:00:00Z,1
+AGT-000002,Support Agent 002,agent002@smartroute.test,Asia/Kolkata,5,AVAILABLE,2025-06-29T00:00:00Z,1
+AGT-000003,Support Agent 003,agent003@smartroute.test,Asia/Kolkata,6,AVAILABLE,2025-06-30T00:00:00Z,1
+AGT-000004,Support Agent 004,agent004@smartroute.test,Asia/Kolkata,3,AVAILABLE,2025-07-01T00:00:00Z,1
+AGT-000005,Support Agent 005,agent005@smartroute.test,Asia/Kolkata,4,AVAILABLE,2025-07-02T00:00:00Z,1
+AGT-000006,Support Agent 006,agent006@smartroute.test,Asia/Kolkata,5,AVAILABLE,2025-07-03T00:00:00Z,1
+AGT-000007,Support Agent 007,agent007@smartroute.test,Asia/Kolkata,6,AVAILABLE,2025-07-04T00:00:00Z,1
+AGT-000008,Support Agent 008,agent008@smartroute.test,Asia/Kolkata,3,AVAILABLE,2025-07-05T00:00:00Z,1
+AGT-000009,Support Agent 009,agent009@smartroute.test,Asia/Kolkata,4,AVAILABLE,2025-07-06T00:00:00Z,1
+AGT-000010,Support Agent 010,agent010@smartroute.test,Asia/Kolkata,5,AVAILABLE,2025-07-07T00:00:00Z,1

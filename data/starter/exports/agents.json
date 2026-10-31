@@ -1,0 +1,12 @@
+[
+{"agent_id":"AGT-000001","concurrency_limit":4,"email":"agent001@smartroute.test","full_name":"Support Agent 001","hired_at":"2025-06-28T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000002","concurrency_limit":5,"email":"agent002@smartroute.test","full_name":"Support Agent 002","hired_at":"2025-06-29T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000003","concurrency_limit":6,"email":"agent003@smartroute.test","full_name":"Support Agent 003","hired_at":"2025-06-30T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000004","concurrency_limit":3,"email":"agent004@smartroute.test","full_name":"Support Agent 004","hired_at":"2025-07-01T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000005","concurrency_limit":4,"email":"agent005@smartroute.test","full_name":"Support Agent 005","hired_at":"2025-07-02T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000006","concurrency_limit":5,"email":"agent006@smartroute.test","full_name":"Support Agent 006","hired_at":"2025-07-03T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000007","concurrency_limit":6,"email":"agent007@smartroute.test","full_name":"Support Agent 007","hired_at":"2025-07-04T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000008","concurrency_limit":3,"email":"agent008@smartroute.test","full_name":"Support Agent 008","hired_at":"2025-07-05T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000009","concurrency_limit":4,"email":"agent009@smartroute.test","full_name":"Support Agent 009","hired_at":"2025-07-06T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"},
+{"agent_id":"AGT-000010","concurrency_limit":5,"email":"agent010@smartroute.test","full_name":"Support Agent 010","hired_at":"2025-07-07T00:00:00Z","is_active":1,"status":"AVAILABLE","timezone":"Asia/Kolkata"}
+]

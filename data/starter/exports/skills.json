@@ -1,0 +1,7 @@
+[
+{"code":"BILLING","display_name":"Billing","is_active":1,"skill_id":"SKL-BILL"},
+{"code":"TECHNICAL","display_name":"Technical","is_active":1,"skill_id":"SKL-TECH"},
+{"code":"ACCOUNT","display_name":"Account Management","is_active":1,"skill_id":"SKL-ACCT"},
+{"code":"SECURITY","display_name":"Security","is_active":1,"skill_id":"SKL-SEC"},
+{"code":"REFUNDS","display_name":"Refunds","is_active":1,"skill_id":"SKL-REF"}
+]

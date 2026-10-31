@@ -1,0 +1,4 @@
+channel_id,code,display_name,calendar_id,is_active
+CHN-EMAIL,EMAIL,Email,CAL-BUSINESS,1
+CHN-CHAT,CHAT,Live Chat,CAL-24X7,1
+CHN-PHONE,PHONE,Phone,CAL-24X7,1

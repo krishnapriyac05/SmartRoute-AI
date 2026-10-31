@@ -1,0 +1,7 @@
+[
+{"code":"BILLING","display_name":"Billing","is_active":1,"max_wait_minutes":30,"queue_id":"QUE-BILL","required_skill_id":"SKL-BILL"},
+{"code":"TECHNICAL","display_name":"Technical Support","is_active":1,"max_wait_minutes":30,"queue_id":"QUE-TECH","required_skill_id":"SKL-TECH"},
+{"code":"ACCOUNT","display_name":"Account Support","is_active":1,"max_wait_minutes":30,"queue_id":"QUE-ACCT","required_skill_id":"SKL-ACCT"},
+{"code":"SECURITY","display_name":"Security Response","is_active":1,"max_wait_minutes":30,"queue_id":"QUE-SEC","required_skill_id":"SKL-SEC"},
+{"code":"REFUNDS","display_name":"Refunds","is_active":1,"max_wait_minutes":30,"queue_id":"QUE-REF","required_skill_id":"SKL-REF"}
+]

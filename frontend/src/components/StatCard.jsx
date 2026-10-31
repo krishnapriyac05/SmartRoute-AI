@@ -1,0 +1,2 @@
+import {ArrowDownRight,ArrowUpRight} from 'lucide-react'
+export default function StatCard({label,value,note,trend='up',icon:Icon,tone='teal'}){const Trend=trend==='up'?ArrowUpRight:ArrowDownRight;return <article className="stat-card"><div className={`stat-icon ${tone}`}><Icon size={20}/></div><div className="stat-heading"><span>{label}</span><strong>{value}</strong></div><div className={`stat-note ${trend}`}><Trend size={14}/>{note}</div></article>}

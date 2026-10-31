@@ -1,0 +1,3 @@
+calendar_id,name,timezone,is_24x7
+CAL-BUSINESS,India business hours,Asia/Kolkata,0
+CAL-24X7,24 x 7,Asia/Kolkata,1

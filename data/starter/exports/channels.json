@@ -1,0 +1,5 @@
+[
+{"calendar_id":"CAL-BUSINESS","channel_id":"CHN-EMAIL","code":"EMAIL","display_name":"Email","is_active":1},
+{"calendar_id":"CAL-24X7","channel_id":"CHN-CHAT","code":"CHAT","display_name":"Live Chat","is_active":1},
+{"calendar_id":"CAL-24X7","channel_id":"CHN-PHONE","code":"PHONE","display_name":"Phone","is_active":1}
+]

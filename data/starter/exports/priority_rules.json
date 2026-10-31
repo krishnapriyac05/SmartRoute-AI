@@ -1,0 +1,5 @@
+[
+{"condition_json":"{\"safety_critical\":true}","effective_from":"2025-08-01T00:00:00Z","effective_to":null,"is_active":1,"name":"Safety incidents are critical","precedence":100,"priority":"CRITICAL","priority_rule_id":"PRU-SAFETY"},
+{"condition_json":"{\"customer_tier\":\"PREMIUM\"}","effective_from":"2025-08-01T00:00:00Z","effective_to":null,"is_active":1,"name":"Premium customer priority","precedence":50,"priority":"HIGH","priority_rule_id":"PRU-PREMIUM"},
+{"condition_json":"{}","effective_from":"2025-08-01T00:00:00Z","effective_to":null,"is_active":1,"name":"Default priority","precedence":0,"priority":"MEDIUM","priority_rule_id":"PRU-DEFAULT"}
+]

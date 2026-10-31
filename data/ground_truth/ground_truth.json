@@ -1,0 +1,27 @@
+[
+  {
+    "type": "CAPACITY_EXCEEDED",
+    "entityType": "agent",
+    "entityId": "AGT-000001"
+  },
+  {
+    "type": "SLA_CALENDAR_IGNORED",
+    "entityType": "ticket",
+    "entityId": "TKT-2026-000001"
+  },
+  {
+    "type": "REOPEN_HISTORY_LOST",
+    "entityType": "ticket",
+    "entityId": "TKT-2026-000003"
+  },
+  {
+    "type": "TRANSFER_LOOP",
+    "entityType": "ticket",
+    "entityId": "TKT-2026-000004"
+  },
+  {
+    "type": "SAFETY_PRIORITY_CONTRADICTION",
+    "entityType": "ticket",
+    "entityId": "TKT-2026-000005"
+  }
+]

@@ -1,0 +1,7 @@
+[
+{"code":"PAYMENT_FAILURE","default_queue_id":"QUE-BILL","display_name":"Payment failure","intent_id":"INT-PAY","is_active":1,"required_skill_id":"SKL-BILL","safety_critical":0},
+{"code":"TECHNICAL_ISSUE","default_queue_id":"QUE-TECH","display_name":"Technical issue","intent_id":"INT-BUG","is_active":1,"required_skill_id":"SKL-TECH","safety_critical":0},
+{"code":"LOGIN_PROBLEM","default_queue_id":"QUE-ACCT","display_name":"Login problem","intent_id":"INT-LOG","is_active":1,"required_skill_id":"SKL-ACCT","safety_critical":0},
+{"code":"SECURITY_INCIDENT","default_queue_id":"QUE-SEC","display_name":"Security incident","intent_id":"INT-SEC","is_active":1,"required_skill_id":"SKL-SEC","safety_critical":1},
+{"code":"REFUND_REQUEST","default_queue_id":"QUE-REF","display_name":"Refund request","intent_id":"INT-REF","is_active":1,"required_skill_id":"SKL-REF","safety_critical":0}
+]

@@ -1,0 +1,4 @@
+priority_rule_id,name,priority,condition_json,precedence,effective_from,effective_to,is_active
+PRU-SAFETY,Safety incidents are critical,CRITICAL,"{""safety_critical"":true}",100,2025-08-01T00:00:00Z,,1
+PRU-PREMIUM,Premium customer priority,HIGH,"{""customer_tier"":""PREMIUM""}",50,2025-08-01T00:00:00Z,,1
+PRU-DEFAULT,Default priority,MEDIUM,{},0,2025-08-01T00:00:00Z,,1

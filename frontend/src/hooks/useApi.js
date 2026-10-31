@@ -1,0 +1,2 @@
+import {useEffect,useState} from 'react'
+export default function useApi(loader){const[data,setData]=useState(null);const[error,setError]=useState('');const[reload,setReload]=useState(0);useEffect(()=>{let active=true;loader().then(value=>active&&setData(value)).catch(()=>active&&setError('The API is unavailable. Start FastAPI on port 8000 and retry.'));return()=>{active=false}},[loader,reload]);return{data,error,retry:()=>{setError('');setData(null);setReload(value=>value+1)}}}

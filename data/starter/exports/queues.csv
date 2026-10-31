@@ -1,0 +1,6 @@
+queue_id,code,display_name,required_skill_id,max_wait_minutes,is_active
+QUE-BILL,BILLING,Billing,SKL-BILL,30,1
+QUE-TECH,TECHNICAL,Technical Support,SKL-TECH,30,1
+QUE-ACCT,ACCOUNT,Account Support,SKL-ACCT,30,1
+QUE-SEC,SECURITY,Security Response,SKL-SEC,30,1
+QUE-REF,REFUNDS,Refunds,SKL-REF,30,1

@@ -1,0 +1,2 @@
+import {AlertCircle,RefreshCw} from 'lucide-react';import LoadingState from './LoadingState'
+export default function ApiState({data,error,retry,children}){if(error)return <div className="api-error"><AlertCircle/><h2>Could not load live data</h2><p>{error}</p><button className="secondary-button" onClick={retry}><RefreshCw size={16}/>Retry</button></div>;if(!data)return <LoadingState/>;return children(data)}

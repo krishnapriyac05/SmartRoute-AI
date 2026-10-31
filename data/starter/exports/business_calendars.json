@@ -1,0 +1,4 @@
+[
+{"calendar_id":"CAL-BUSINESS","is_24x7":0,"name":"India business hours","timezone":"Asia/Kolkata"},
+{"calendar_id":"CAL-24X7","is_24x7":1,"name":"24 x 7","timezone":"Asia/Kolkata"}
+]

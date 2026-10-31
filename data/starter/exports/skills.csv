@@ -1,0 +1,6 @@
+skill_id,code,display_name,is_active
+SKL-BILL,BILLING,Billing,1
+SKL-TECH,TECHNICAL,Technical,1
+SKL-ACCT,ACCOUNT,Account Management,1
+SKL-SEC,SECURITY,Security,1
+SKL-REF,REFUNDS,Refunds,1
