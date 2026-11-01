@@ -1,6 +1,6 @@
 # SmartRoute AI — Module-wise end-to-end testing workflow
 
-Use this checklist before deployment. Run commands from the repository root unless a step says otherwise. Record actual results in `docs/WORKFLOW_LOG.md`; do not mark a step complete only because the expected result is written here.
+Use this checklist before GitHub submission. Run commands from the repository root unless a step says otherwise. Record actual results in `docs/WORKFLOW_LOG.md`; do not mark a step complete only because the expected result is written here.
 
 ## 1. Environment and dependency check
 
@@ -169,7 +169,7 @@ Open `http://127.0.0.1:5173` and verify:
 5. Request a nonexistent ticket and confirm the API returns HTTP 404.
 6. Submit an invalid lifecycle transition and confirm HTTP 409 without partial database changes.
 
-## 10. Evidence and final approval gate
+## 10. Evidence and final submission gate
 
 Capture and retain:
 
@@ -181,7 +181,7 @@ Capture and retain:
 - Screenshots of Dashboard, Ticket Details, Validation, and Audit Trail
 - Any issues found, fixes applied, and retest results
 
-Before deployment, confirm all critical checks below:
+Before submission, confirm all critical checks below:
 
 - [ ] Automated tests, lint, and build pass
 - [ ] Clean starter data passes validation
@@ -193,4 +193,4 @@ Before deployment, confirm all critical checks below:
 - [ ] README and workflow log reflect actual results
 - [ ] No secrets or generated full database are staged in Git
 
-Deployment preparation begins only after the user confirms this end-to-end checklist is complete.
+Push the final revision only after this end-to-end checklist is complete and the staged files have been reviewed.

@@ -65,9 +65,10 @@
 - [x] Live FastAPI data on dashboard, tickets, agents, routing, SLA, analytics, generator status, validation, and audit screens
 - [x] Two-run checksum reproducibility proof
 - [x] Full-scale validation report
-- [ ] GitHub publication and optional deployment
+- [x] GitHub source publication
+- [x] Cloud deployment explicitly excluded from the final submission scope
 
 ## Environment note
 
-- A Vite/React scaffold is now present. The user's interactive environment reports npm repaired, but the isolated Codex execution account still resolves the system npm launcher to a missing user-level `npm-cli.js`; frontend verification remains pending in this execution environment.
+- The React/Vite frontend is implemented and connected to the live FastAPI API. Frontend lint and production builds were verified during implementation; current verification commands are documented in the root README and E2E workflow.
 

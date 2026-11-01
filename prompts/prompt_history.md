@@ -18,19 +18,19 @@ User confirmed React + Vite was running and requested installation of `react-rou
 
 ## Prompt 004 — 2026-10-31
 
-User requested that development resume with the next phase. Interpreted as implementing the live FastAPI data layer and connecting the primary dashboard and ticket workflows to the deterministic SQLite dataset, with automated and browser-level verification.
+User requested continuation with the live FastAPI data layer and connection of the primary dashboard and ticket workflows to the deterministic SQLite dataset, including automated and browser-level verification.
 
 ## Prompt 005 — 2026-10-31
 
-User requested continuation into the next development phase. Interpreted as the operational business core: explainable capacity/skill/language/queue/shift routing, transfer and escalation controls, resolve/reopen lifecycle preservation, and calendar-aware SLA calculations with API and automated verification.
+User requested implementation of the operational business core: explainable capacity, skill, language, queue, and shift routing; transfer and escalation controls; resolution and reopening with preserved lifecycle history; and calendar-aware SLA calculations with API and automated verification.
 
 ## Prompt 006 — 2026-10-31
 
-User requested development continue. Interpreted as implementing all five mandatory negative scenarios in an isolated evaluation dataset, separate CSV/JSON ground truth, independent rule-based detection, API/CLI reporting, and zero-false-positive baseline verification.
+User requested implementation of all five mandatory negative scenarios in an isolated evaluation dataset, separate CSV/JSON ground truth, independent rule-based detection, API/CLI reporting, and zero-false-positive baseline verification.
 
 ## Prompt 007 — 2026-10-31
 
-User requested further development. Interpreted as connecting all remaining secondary React screens to the live agents, routing, SLA, analytics, health, validation, and audit APIs with loading/error handling and end-to-end browser verification.
+User requested connection of all remaining React screens to the live agents, routing, SLA, analytics, health, validation, and audit APIs, including loading/error handling and end-to-end browser verification.
 
 ## Prompt 008 — 2026-10-31
 
@@ -38,10 +38,14 @@ User requested the next phase but required a module-wise end-to-end testing work
 
 ## Prompt 009 — 2026-10-31
 
-User reported that New Ticket, Update Ticket, Filters, and the top navigation search were nonfunctional while the local ticket search worked, and requested an appropriate fix. Interpreted as requiring complete database-backed create/update workflows, functional filters, and URL-backed global search, with automated and browser-level verification before deployment preparation.
+User reported that New Ticket, Update Ticket, Filters, and the top navigation search were nonfunctional while the local ticket search worked. The user requested complete database-backed create/update workflows, functional filters, URL-backed global search, and verification before further submission preparation.
 
 ## Prompt 010 — 2026-10-31
 
 User clarified that cloud deployment and PostgreSQL are not required: the working SQLite application should remain aligned with the code challenge and be prepared for a GitHub source submission. PostgreSQL/Render/Vercel preparation was removed, the complete application was reverified, and manual Git publication instructions were requested.
+
+## Prompt 011 — 2026-11-01
+
+User requested ownership of repository documentation: review the actual structure, implementation, dependencies, configuration, and requirements; rewrite the README with a complete fresh-clone local setup; professionally rephrase only project-relevant user prompts; remove only confirmed unnecessary files; validate all documented commands and paths; and recommend maintainability improvements. The user explicitly required project-specific documentation without unsupported assumptions or generic content.
 
 

@@ -138,6 +138,18 @@
 - Prompt reference: Prompt 010
 - Scope correction: the briefly prepared PostgreSQL/Render/Vercel configuration was removed at the user's direction. No ticket, routing, SLA, validation, generator, or frontend functionality was removed.
 - Verification: 24/24 backend tests passed, frontend lint passed, the Vite production build passed, and clean starter validation passed with zero findings or foreign-key violations.
-- Repository audit: no Git remote is configured; 132 source/submission files are eligible for the initial commit. Large full-profile artifacts, local databases, dependencies, and build output are ignored. No credential-like strings were found in source files.
+- Repository audit at phase completion: 132 source/submission files were eligible for the initial commit. Large full-profile artifacts, local databases, dependencies, and build output were ignored, and no credential-like strings were found. The repository was subsequently published to `https://github.com/krishnapriyac05/SmartRoute-AI.git`.
+
+## Entry 012
+
+- Date: 2026-11-01 (Asia/Calcutta)
+- Phase: 12 — documentation and repository cleanup
+- Objective: Make the repository understandable and runnable from a fresh clone using only verified, project-specific instructions.
+- Prompt reference: Prompt 011
+- Documentation: rewrote the root README with architecture, prerequisites, sequential setup, actual SQLite profiles, environment variables, API/UI modules, verification, reset guidance, troubleshooting, and GitHub submission scope. Updated the frontend guide, E2E terminology, requirements status, and project-relevant prompt history.
+- Cleanup: removed the unreferenced Vite starter assets `frontend/src/assets/react.svg`, `frontend/src/assets/vite.svg`, and `frontend/src/assets/hero.png`. No runtime, configuration, dataset, or deployment-required file was removed.
+- Frontend verification: ESLint passed and the Vite 8.3.5 production build passed after cleanup. The existing non-blocking JavaScript chunk-size warning remains.
+- Data verification: `data/starter/smartroute.db` passed validation with zero findings and zero foreign-key violations.
+- Backend verification note: the test suite began successfully after directing temporary files into the workspace, but the API test client stalled under the locally installed Python 3.14 runtime and emitted a Starlette/httpx deprecation warning. The README now recommends Python 3.11–3.13; the last supported-toolchain result remains the recorded 24/24 pass from Entry 011.
 
 
