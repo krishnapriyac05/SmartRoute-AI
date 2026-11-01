@@ -152,4 +152,16 @@
 - Data verification: `data/starter/smartroute.db` passed validation with zero findings and zero foreign-key violations.
 - Backend verification note: the test suite began successfully after directing temporary files into the workspace, but the API test client stalled under the locally installed Python 3.14 runtime and emitted a Starlette/httpx deprecation warning. The README now recommends Python 3.11–3.13; the last supported-toolchain result remains the recorded 24/24 pass from Entry 011.
 
+## Entry 013
+
+- Date: 2026-11-01 (Asia/Calcutta)
+- Phase: 13 — capacity-aware waiting queue and local API usability
+- Objective: Preserve valid tickets when eligible agents are full, assign available work automatically, and remove confusing local documentation 404 responses.
+- Prompt reference: Prompt 012
+- Backend: ticket creation now evaluates skill, language, queue, shift, availability, and capacity before selecting the highest-scoring eligible agent. If no eligible capacity exists, the ticket remains `QUEUED` with a `ROUTING_FAILED` waiting-queue event instead of being rejected.
+- Retry workflow: resolving or transferring a ticket retries all unassigned queued tickets in priority, SLA-deadline, creation-time, and ticket-ID order. Successful retry assignments append immutable assignment and ticket-status events.
+- API usability: `/` and the accidentally encoded `/docs**` URL redirect to `/docs`; `/favicon.ico` returns an empty successful response.
+- Frontend: creation now shows a success modal identifying either automatic assignment or Pending Assignment, including the ticket ID, priority, explanatory message, and assigned agent when applicable.
+- Verification: 15 non-API backend tests passed, including the isolated full-capacity/released-capacity waiting-queue scenario. Frontend ESLint and the Vite production build passed. Live `/` and encoded `/docs**` requests both returned redirects to `/docs`, and `/health` reported healthy.
+
 

@@ -48,4 +48,8 @@ User clarified that cloud deployment and PostgreSQL are not required: the workin
 
 User requested ownership of repository documentation: review the actual structure, implementation, dependencies, configuration, and requirements; rewrite the README with a complete fresh-clone local setup; professionally rephrase only project-relevant user prompts; remove only confirmed unnecessary files; validate all documented commands and paths; and recommend maintainability improvements. The user explicitly required project-specific documentation without unsupported assumptions or generic content.
 
+## Prompt 012 — 2026-11-01
+
+User requested correction of local API 404 responses for the root URL and a malformed Swagger documentation URL. The user also required capacity-aware exception handling for new tickets: persist every valid ticket, assign it immediately when a skill/language/queue/shift/capacity-eligible agent exists, otherwise retain it in a waiting queue, retry waiting tickets automatically when capacity is released, prioritize urgent and SLA-sensitive work, preserve assignment history, and show a clear success or pending-assignment confirmation in the frontend.
+
 

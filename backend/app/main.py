@@ -8,13 +8,19 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterator
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 
 from backend.app.database import PROJECT_ROOT, connect
 from backend.app.services.lifecycle import change_status, create_resolution, reopen, transfer
-from backend.app.services.routing import evaluate_agents, require_eligible_agent
+from backend.app.services.routing import (
+    assign_best_eligible_agent,
+    evaluate_agents,
+    require_eligible_agent,
+    retry_waiting_tickets,
+)
 from backend.app.services.validation import validate
 
 ACTIVE_STATUSES = ("NEW", "QUEUED", "ASSIGNED", "IN_PROGRESS", "PENDING_CUSTOMER", "ESCALATED", "REOPENED")
@@ -87,6 +93,18 @@ def create_app(database: str | Path | None = None) -> FastAPI:
     origins = os.getenv("SMARTROUTE_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
     app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True,
                        allow_methods=["*"], allow_headers=["*"])
+
+    @app.get("/", include_in_schema=False)
+    def api_root() -> RedirectResponse:
+        return RedirectResponse(url="/docs")
+
+    @app.get("/docs**", include_in_schema=False)
+    def malformed_docs_link() -> RedirectResponse:
+        return RedirectResponse(url="/docs")
+
+    @app.get("/favicon.ico", include_in_schema=False, status_code=204)
+    def favicon() -> Response:
+        return Response(status_code=204)
 
     @contextmanager
     def database_connection() -> Iterator:
@@ -209,15 +227,24 @@ def create_app(database: str | Path | None = None) -> FastAPI:
             connection.execute("INSERT INTO ticket_events VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                 (f"EVT-{ticket_id}-001", ticket_id, 1, "CREATED", None, "NEW", stamp, "SYSTEM", None, "Ticket created from UI", "{}"))
             connection.execute("INSERT INTO ticket_events VALUES (?,?,?,?,?,?,?,?,?,?,?)",
-                (f"EVT-{ticket_id}-002", ticket_id, 2, "STATUS_CHANGED", "NEW", "QUEUED", stamp, "SYSTEM", None, "Awaiting eligible capacity", "{}"))
-            connection.execute("INSERT INTO assignment_events VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-                (f"ASN-{ticket_id}-001", ticket_id, 1, "ROUTING_FAILED", None, None, intent["default_queue_id"],
-                 stamp, "SYSTEM", None, "NO_ELIGIBLE_CAPACITY", '{"source":"ui"}'))
+                (f"EVT-{ticket_id}-002", ticket_id, 2, "STATUS_CHANGED", "NEW", "QUEUED", stamp, "SYSTEM", None, "Ready for routing", "{}"))
             connection.execute("INSERT INTO sla_events VALUES (?,?,?,?,?,?,?,?,?)",
                 (f"SLA-{ticket_id}-001", ticket_id, policy, "STARTED", "RESOLUTION", stamp,
                  resolution_due.isoformat().replace("+00:00", "Z"), 0, "SLA policy applied"))
+            assignment = assign_best_eligible_agent(connection, ticket_id, created_at)
+            if assignment is None:
+                connection.execute("INSERT INTO assignment_events VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+                    (f"ASN-{ticket_id}-001", ticket_id, 1, "ROUTING_FAILED", None, None, intent["default_queue_id"],
+                     stamp, "SYSTEM", None, "NO_ELIGIBLE_CAPACITY", '{"source":"ui","waitingQueue":true}'))
             connection.commit()
-        return {"ticketId": ticket_id, "status": "QUEUED", "priority": priority, "version": 1}
+        if assignment:
+            return {"ticketId": ticket_id, "status": "ASSIGNED", "priority": priority, "version": 2,
+                    "assignedAgentId": assignment["agentId"], "assignedAgentName": assignment["agentName"],
+                    "message": f"Ticket created and assigned to {assignment['agentName']}."}
+        return {"ticketId": ticket_id, "status": "QUEUED", "priority": priority, "version": 1,
+                "assignedAgentId": None,
+                "message": "All eligible agents are currently at maximum capacity or unavailable. "
+                           "The ticket is in the waiting queue and will be assigned automatically."}
 
     @app.get("/api/tickets/{ticket_id}", tags=["tickets"])
     def ticket_detail(ticket_id: str) -> dict:
@@ -300,11 +327,13 @@ def create_app(database: str | Path | None = None) -> FastAPI:
                 evidence = require_eligible_agent(connection, ticket_id, request.to_agent_id, at)
                 event_id = transfer(connection, ticket_id, request.to_agent_id, request.actor_id,
                                     request.reason, evidence, at)
+                retried = retry_waiting_tickets(connection, at)
                 connection.commit()
             except ValueError as error:
                 connection.rollback()
                 raise HTTPException(status_code=409, detail=str(error)) from error
-        return {"ticketId": ticket_id, "assignmentEventId": event_id, "status": "ASSIGNED"}
+        return {"ticketId": ticket_id, "assignmentEventId": event_id, "status": "ASSIGNED",
+                "waitingQueueAssignments": retried}
 
     @app.post("/api/tickets/{ticket_id}/escalate", tags=["workflows"])
     def escalate_ticket(ticket_id: str, request: EscalateRequest) -> dict:
@@ -330,11 +359,13 @@ def create_app(database: str | Path | None = None) -> FastAPI:
             try:
                 resolution_id = create_resolution(connection, ticket_id, request.agent_id,
                                                   request.resolution_code, request.summary)
+                retried = retry_waiting_tickets(connection, dataset_reference(connection))
                 connection.commit()
             except ValueError as error:
                 connection.rollback()
                 raise HTTPException(status_code=409, detail=str(error)) from error
-        return {"ticketId": ticket_id, "resolutionId": resolution_id, "status": "RESOLVED"}
+        return {"ticketId": ticket_id, "resolutionId": resolution_id, "status": "RESOLVED",
+                "waitingQueueAssignments": retried}
 
     @app.post("/api/tickets/{ticket_id}/reopen", tags=["workflows"])
     def reopen_ticket(ticket_id: str, request: ReopenRequest) -> dict:

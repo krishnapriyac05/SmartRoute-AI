@@ -8,6 +8,7 @@ The repository is designed to run locally. It does not require PostgreSQL, Rende
 
 - Creates, searches, filters, views, and updates support tickets.
 - Routes tickets using queue, skill, language, shift, and concurrency-capacity checks.
+- Keeps valid tickets in a priority/SLA-ordered waiting queue when all eligible agents are full and retries them when resolution releases capacity.
 - Explains why each agent is eligible or ineligible for an assignment.
 - Calculates first-response and resolution deadlines from channel and priority policies, including business calendars and exceptions.
 - Preserves transfers, escalations, resolutions, reopenings, assignments, and status changes as append-only history.

@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+import json
 from datetime import datetime
+
+from backend.app.services.lifecycle import append_ticket_event, next_sequence, utc_text
 
 ACTIVE_STATUSES = ("ASSIGNED", "IN_PROGRESS", "PENDING_CUSTOMER", "ESCALATED", "REOPENED")
 
@@ -49,4 +52,47 @@ def require_eligible_agent(connection, ticket_id: str, agent_id: str, at: dateti
         failed = ", ".join(name for name, passed in result["checks"].items() if not passed)
         raise ValueError(f"Agent is not eligible: {failed}")
     return result
+
+
+def assign_best_eligible_agent(connection, ticket_id: str, at: datetime,
+                               reason_code: str = "BEST_ELIGIBLE_AGENT") -> dict | None:
+    """Assign the highest-scoring eligible agent, or leave the ticket queued."""
+    ticket = connection.execute(
+        "SELECT status,queue_id,assigned_agent_id FROM tickets WHERE ticket_id=?", (ticket_id,)
+    ).fetchone()
+    if ticket is None:
+        raise ValueError("Ticket not found")
+    if ticket["assigned_agent_id"] is not None:
+        return None
+    candidate = next((item for item in evaluate_agents(connection, ticket_id, at) if item["eligible"]), None)
+    if candidate is None:
+        return None
+
+    sequence = next_sequence(connection, "assignment_events", ticket_id)
+    event_id = f"ASN-{ticket_id}-{sequence:03d}"
+    connection.execute("INSERT INTO assignment_events VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+        event_id, ticket_id, sequence, "ASSIGNED", None, candidate["agentId"], ticket["queue_id"],
+        utc_text(at), "SYSTEM", None, reason_code, json.dumps(candidate, sort_keys=True)))
+    connection.execute(
+        "UPDATE tickets SET assigned_agent_id=?,status='ASSIGNED',version=version+1 WHERE ticket_id=?",
+        (candidate["agentId"], ticket_id),
+    )
+    append_ticket_event(connection, ticket_id, "STATUS_CHANGED", ticket["status"], "ASSIGNED",
+                        "SYSTEM", None, "Routing completed", at)
+    return {"assignmentEventId": event_id, **candidate}
+
+
+def retry_waiting_tickets(connection, at: datetime) -> list[dict]:
+    """Assign waiting tickets in priority, SLA-deadline, then arrival order."""
+    waiting = connection.execute("""SELECT ticket_id FROM tickets
+        WHERE status='QUEUED' AND assigned_agent_id IS NULL
+        ORDER BY CASE priority WHEN 'CRITICAL' THEN 1 WHEN 'HIGH' THEN 2
+                 WHEN 'MEDIUM' THEN 3 ELSE 4 END,
+                 resolution_due_at, created_at, ticket_id""").fetchall()
+    assignments = []
+    for row in waiting:
+        assigned = assign_best_eligible_agent(connection, row["ticket_id"], at, "WAITING_QUEUE_RETRY")
+        if assigned:
+            assignments.append({"ticketId": row["ticket_id"], **assigned})
+    return assignments
 

@@ -16,6 +16,7 @@ import './styles/layout.css'
 import './styles/dashboard.css'
 import './styles/secondary.css'
 import './styles/forms.css'
+import './styles/ticket-result.css'
 
 export default function App() {
   return <BrowserRouter><div className="app-shell"><Sidebar /><div className="app-main"><Navbar /><main className="page-content"><Routes>

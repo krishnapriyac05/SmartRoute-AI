@@ -30,6 +30,12 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(response.json()["tickets"], 250)
         self.assertTrue(response.json()["foreignKeysValid"])
 
+    def test_root_and_malformed_docs_link_redirect_to_docs(self) -> None:
+        for path in ("/", "/docs**"):
+            response = self.client.get(path, follow_redirects=False)
+            self.assertEqual(response.status_code, 307)
+            self.assertEqual(response.headers["location"], "/docs")
+
     def test_dashboard_reconciles_to_database(self) -> None:
         data = self.client.get("/api/dashboard").json()
         self.assertEqual(data["metrics"]["tickets"], 250)
@@ -103,8 +109,9 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(created.status_code, 201, created.text)
         ticket_id = created.json()["ticketId"]
         detail = self.client.get(f"/api/tickets/{ticket_id}").json()
-        self.assertEqual(detail["status"], "QUEUED")
-        self.assertEqual(detail["version"], 1)
+        self.assertIn(detail["status"], {"QUEUED", "ASSIGNED"})
+        self.assertEqual(detail["version"], created.json()["version"])
+        self.assertIn("message", created.json())
         updated = self.client.patch(f"/api/tickets/{ticket_id}", json={
             "subject": "Updated UI ticket", "description": "Updated through the ticket modal",
             "priority": "HIGH", "version": detail["version"],

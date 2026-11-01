@@ -148,7 +148,9 @@ Open `http://127.0.0.1:5173` and verify:
 - Top navigation search sends the query to Tickets and shows the matching ticket(s).
 - Filters can be opened and independently restrict priority, status, and channel; Clear restores the unfiltered list.
 - New ticket opens a form populated from live customer, channel, intent, and language data. Submitting creates the record and opens its detail page.
+- New ticket attempts immediate eligible assignment. When capacity is unavailable, the confirmation clearly shows Pending Assignment and the ticket remains in the waiting queue.
 - Update ticket changes subject, description, and priority. The detail page refreshes, the audit-event count increases, and a priority change recalculates SLA deadlines.
+- Resolving an assigned ticket retries waiting work in critical/high/medium/low priority order, then by SLA deadline and arrival time; successful retries create assignment and status-history events.
 - Opening a ticket shows real messages, agent, routing reason, and event count.
 - Agents shows 10 profiles and utilization.
 - Routing shows assignment evidence.
